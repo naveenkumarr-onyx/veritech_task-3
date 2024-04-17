@@ -13,10 +13,16 @@ function display(tasks) {
   taskListContainer.innerHTML = "";
   tasks.forEach((task, index) => {
     var li = document.createElement("li");
+    var div = document.createElement("div");
+    div.innerHTML = "";
+    div.classList.add("btnContainer");
     li.textContent = task;
 
     // Add update functionality
-    li.addEventListener("dblclick", () => {
+    var btn = document.createElement("button");
+    btn.textContent = "update";
+    btn.classList.add("updateBtn");
+    btn.addEventListener("click", () => {
       var newTask = prompt("Update task:", task);
       if (newTask !== null) {
         tasks[index] = newTask;
@@ -41,8 +47,9 @@ function display(tasks) {
       localStorage.setItem("tasks", JSON.stringify(tasks));
       display(tasks);
     });
-
-    li.appendChild(deleteButton);
+    div.appendChild(btn);
+    div.appendChild(deleteButton);
+    li.appendChild(div);
     taskListContainer.appendChild(li);
   });
 }

@@ -8,10 +8,17 @@
   </head>
   <body>
     <div class="todo-container">
-      <h1>Simple To-Do App</h1>
-      <input type="text" id="task" placeholder="Enter your task" />
-      <button id="addTaskBtn" onclick="addTask()">Add Task</button>
-      <button id="addTaskBtn" onclick="clearStorage()">Clear Storage</button>
+      <div>
+        <h1>Simple To-Do App</h1>
+      </div>
+      <div class="inputDiv">
+        <input type="text" id="task" placeholder="Enter your task" />
+        <div>
+          <button id="addTaskBtn" onclick="addTask()">Add Task</button>
+          <button id="resetBtn" onclick="clearStorage()">Reset Task</button>
+        </div>
+      </div>
+
       <div id="taskList"></div>
     </div>
     <script src="./index.js"></script>
