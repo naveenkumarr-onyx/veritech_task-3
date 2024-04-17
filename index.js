@@ -14,7 +14,6 @@ function display(tasks) {
   tasks.forEach((task, index) => {
     var li = document.createElement("li");
     var div = document.createElement("div");
-    div.innerHTML = "";
     div.classList.add("btnContainer");
     li.textContent = task;
 
@@ -31,19 +30,19 @@ function display(tasks) {
       }
     });
 
-    li.addEventListener("click", () => {
-      const clickedIndex = Array.from(taskListContainer.children).indexOf(li);
-      if (index === clickedIndex) {
-        li.classList.toggle("style");
-      }
-    });
+    // li.addEventListener("click", () => {
+    //   const clickedIndex = Array.from(taskListContainer.children).indexOf(li);
+    //   if (index === clickedIndex) {
+    //     li.classList.toggle("style");
+    //   }
+    // });
 
     // Add delete functionality
     var deleteButton = document.createElement("button");
     deleteButton.classList.add("delete");
     deleteButton.textContent = "❌";
     deleteButton.addEventListener("click", () => {
-      tasks.splice(index, 1);
+      tasks.splice(index, 2);
       localStorage.setItem("tasks", JSON.stringify(tasks));
       display(tasks);
     });
